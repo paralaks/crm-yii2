@@ -1,0 +1,18 @@
+#<Limit GET POST PUT DELETE>
+  Allow from all
+#</Limit>
+<IfModule mod_rewrite.c>
+  Options -Multiviews
+  Options +FollowSymLinks
+
+  RewriteEngine On
+  RewriteBase /
+
+  # Redirect Trailing Slashes...
+  RewriteRule ^(.*)/$ /$1 [L,R=301]
+  
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /index.php [L]
+</IfModule>
+
