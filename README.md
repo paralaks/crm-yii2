@@ -2,22 +2,22 @@
 
 This is a small CRM project I developed using Yii2 framework as part of my self-learning. You can use it at your own risk.
 
-#Installation
+# Installation
 * Install composer
 * Install composer asset plugin by executing console command `composer global require "fxp/composer-asset-plugin:^1.2.0"`
-* Clone the project and open a console in the project folder
-* Install composer packages by executing command `composer update`
+* Clone the project and install Yii2 packages by executing command `composer update`
 * Setup your web server and database based on configuration file you would like to use. ie: open `config/db.php` for development environment settings.
 * Run migrations by executing command `yii migrate`
 * Once all migrations are executed successfully, open application in your browser and use credentials in the seeder `migrations/m151102_000902_seed_users_table.php`
 * If you get some error messages related to **AppDbManager** class, it means framework updates are incompatible with the modified `helpers\AppDbManager.php` caching component. You can quickly solve this by editing `config/web.php` so that uncomment line 75, comment lines 77 & 78. It should look like this:
-`
-       'class' => 'yii\rbac\DbManager',
+```
+      'class' => 'yii\rbac\DbManager',
       // superchaching below: 60 second timeout + per request caching
       //'class' => 'app\helpers\AppDbManager',
       //'cache' => 'yii\caching\FileCache'
-`
-#Features
+```
+
+# Features
 * Application is fully responsive
 * There are 3 configuration options for development, staging and production environments. Environment detection happens on the fly.
 * A transparent decal on the top-left corner will be visible to reveal environment type when the application is running in development or staging mode 
