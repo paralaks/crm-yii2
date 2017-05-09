@@ -34,3 +34,5 @@ phpunit.phar
 *.zip
 *.7z
 *.gz
+
+tests/_output/*

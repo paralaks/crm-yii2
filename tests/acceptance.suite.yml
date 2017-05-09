@@ -1,0 +1,26 @@
+class_name: AcceptanceTester
+modules:
+    enabled:
+        - PhpBrowser:
+            url: http://local.crm-yii.com/
+        - Yii2:
+            part: orm
+            cleanup: false
+
+        - Db:
+            dsn: 'mysql:host=localhost;dbname=crm_yii;charset=utf8'
+            user: 'crm-yii'
+            password: 'crm-yii-pass'
+            dump: tests/_data/seeder.sql
+            populate: true
+            cleanup: true
+            reconnect: false
+
+        
+#        - WebDriver:
+#            url: http://local.crm-yii.com/
+#            browser: firefox
+#        - Yii2:
+#            part: orm
+#            entryScript: index-test.php
+#            cleanup: false
