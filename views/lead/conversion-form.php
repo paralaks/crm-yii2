@@ -20,10 +20,7 @@ $this->params['breadcrumbs'][] = Yii::t('main', 'Convert');
 
   <?php include(__DIR__.'/../commons/common-view-defs.php'); ?>
 
-<?php $form = ActiveForm::begin(['options'=> ['class'=>'form-horizontal form-one-half']] ); ?>
-
- 	<?= $form->field($model, 'convert_lead', $tt1ColInSm)->hiddenInput()->label(false) ?>
-
+<?php $form = ActiveForm::begin(['method'=>'post', 'options'=> ['class'=>'form-horizontal form-one-half']] ); ?>
   <div class="row">
   	<?= $form->field($model, 'account_name', $tt1ColInSm)->textInput() ?>
   </div>
@@ -36,7 +33,7 @@ $this->params['breadcrumbs'][] = Yii::t('main', 'Convert');
   </div>
 
   <div class="row">
-      <?= $form->field($model, 'account_id', $tt1ColInSm)->dropDownList(array_merge(["name"=>''], array_column($accountResults, "name")))->label("Existing accounts") ?>
+      <?= $form->field($model, 'account_id', $tt1ColInSm)->dropDownList(array_merge([''=>''], array_column($accountResults, "name")))->label("Existing accounts") ?>
       <?php if ($tooManyResults===true)
         echo '<br>(<b>'.Yii::t('main', 'Too many results. Try again with another keyword.').'</b>)';
         ?>
@@ -48,13 +45,17 @@ $this->params['breadcrumbs'][] = Yii::t('main', 'Convert');
   <div class="row">
     <label class="form-contol col-xs-4 text-right"><?= Yii::t('main', 'Create New Opportunity?') ?></label>
     <div class="col-xs-4 text-center">
-      <?= $form->field($model, 'new_opportunity')->radioList([1=>'Yes', 0=>'No'])->label(false) ?>
+      <?= $form->field($model, 'new_opportunity')->radioList([1=>'Yes', 0=>'No'], ['unselect'=>null])->label(false) ?>
     </div>
   </div>
 
   <div id="newOpportunityFields" style="display: <?= empty($model->new_opportunity) ? 'none' : 'block' ?>">
     <div class="row">
     	<?= $form->field($model, 'opportunity_name', $tt1ColInSm)->textInput() ?>
+    </div>
+
+    <div class="row">
+    	<?= $form->field($model, 'probability', $tt1ColInSm)->textInput() ?>
     </div>
 
     <div class="row">
@@ -68,7 +69,7 @@ $this->params['breadcrumbs'][] = Yii::t('main', 'Convert');
 
 
   <div class="form-group text-center">
-    <?= Html::input('submit', 'Convert', Yii::t('main', 'Convert'), ['class' => 'btn btn-primary']) ?>
+    <?= Html::submitButton(Yii::t('main', 'Convert'), ['id'=>'lead-convert-btn', 'class' => 'btn btn-primary']) ?>
     <?= Html::a(Yii::t('main', 'Cancel'), Url::to(['lead/view', 'id' => $lead->id]), ['class' => 'btn btn-success']) ?>
   </div>
 

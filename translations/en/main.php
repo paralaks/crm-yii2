@@ -25,7 +25,7 @@ return [
     'Account Number' => '',
     'Account Type' => 'Type',
     'Account could not be saved' => '',
-    'Account name must be given or account must be selected from the list.' => '',
+    'Account name is required for conversion.' => '',
     'Accounts' => '',
     'Activate' => '',
     'Active' => '',
@@ -126,6 +126,7 @@ return [
     'Lead Status' => '',
     'Lead conversion failed.' => '',
     'Lead converted successfully. Contact details are below.' => '',
+    'Lead was converted to contact' => '',
     'Leads' => '',
     'Location' => '',
     'Login' => '',
@@ -258,4 +259,5 @@ return [
     'Your last login was' => '',
     'Zip' => '',
     'Zip Other' => '',
+    'on' => '',
 ];

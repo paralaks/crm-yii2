@@ -27,6 +27,47 @@ class LeadController extends CrmController
     return $this->render('index', ['searchModel' => $searchModel,'dataProvider' => $dataProvider]);
   }
 
+  public function actionView($id)
+  {
+    $model=$this->findModel($id);
+
+    if ($model->converted_at)
+    {
+      $contact=Contact::findOne("email='".$model->email."'");
+      $contactInfo = $contact ? ' '.$contact->first_name.' '.$contact->last_name : '';
+
+      Yii::$app->session->setFlash('pageError', Yii::t('main', 'Lead was converted to contact').' '. Yii::t('main', 'on').' '.$model->converted_at . ' ' . $contactInfo);
+
+      return $this->redirect('/lead/index');
+    }
+
+    return $this->render('view', ['model' => $model]);
+  }
+
+
+  /**
+   * Creates a new Lead model.
+   * If creation is successful, the browser will be redirected to the 'view' page.
+   *
+   * @return mixed
+   */
+  public function actionCreate()
+  {
+    $model=new Lead();
+
+    if ($model->load(Yii::$app->request->post()) && $model->save())
+    {
+      return $this->redirect(['view', 'id' => $model->id]);
+    }
+    else
+    {
+      $model->owner_id=Yii::$app->user->identity->id;
+
+      return $this->render('create', ['model' => $model]);
+    }
+  }
+
+
   public function actionConvert($id)
   {
     $lead=$this->findModel($id);
@@ -46,36 +87,8 @@ class LeadController extends CrmController
 
     $viewData=['lead'=>$lead, 'model'=>$model, 'accountResults'=>$accountResults, 'tooManyResults'=>$this->tooManyResults];
 
-    if ($model->load(Yii::$app->request->post()) && !empty($model->convert_lead))
+    if ($model->load(Yii::$app->request->post()) && $model->validate(['account_name', 'account_id', 'opportunity_name', 'probability', 'stage_id', 'close_date' ]))
     {
-      // let's make sure we have all the data we need!
-      if (empty($model->account_name) && empty($model->account_id))
-      {
-        Yii::$app->session->setFlash('pageError', Yii::t('main', 'Account name must be given or account must be selected from the list.'));
-
-        return $this->render('conversion-form', $viewData);
-      }
-
-      $messages=[];
-
-      if ($model->new_opportunity==1)
-      {
-        if (empty($model->opportunity_name))
-          $messages[]=Yii::t('main', 'Opportunity name field can not be blank');
-        if (empty($model->stage_id))
-          $messages[]=Yii::t('main', 'Stage field can not be blank');
-        if (empty($model->close_date))
-          $messages[]=Yii::t('main', 'Close date field can not be blank');
-
-        if (count($messages))
-        {
-          Yii::$app->session->setFlash('pageError', Yii::t('main', 'There are some errors with your input').':');
-          Yii::$app->session->setFlash('pageErrors', ['errors'=>$messages]);
-
-          return $this->render('conversion-form', $viewData);
-        }
-      }
-
       $fields['owner_id']=$lead->owner_id;
       $fields['adder_id']=$lead->adder_id;
       $fields['modifier_id']=$lead->modifier_id;

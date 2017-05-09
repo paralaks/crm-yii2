@@ -42,7 +42,7 @@ class m151122_060140_create_table_leads extends Migration
       "status_id" => Schema::TYPE_INTEGER . "(10) unsigned DEFAULT NULL",
       "industry_id" => Schema::TYPE_INTEGER . "(10) unsigned DEFAULT NULL",
       "rating_id" => Schema::TYPE_INTEGER . "(10) unsigned DEFAULT NULL",
-      "converted_at" => Schema::TYPE_DATE ." DEFAULT NULL",
+      "converted_at" => Schema::TYPE_DATETIME ." DEFAULT NULL",
       "read_by_owner" => "tinyint(1) DEFAULT NULL",
       "owner_id" => Schema::TYPE_INTEGER . "(10) unsigned DEFAULT NULL",
       "adder_id" => Schema::TYPE_INTEGER . "(10) unsigned DEFAULT NULL",
