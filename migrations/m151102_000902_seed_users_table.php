@@ -12,7 +12,7 @@ class m151102_000902_seed_users_table extends Migration
       'name' => 'Admin User',
       'auth_key' => Yii::$app->security->generateRandomString(),
       'password_hash' => Yii::$app->security->generatePasswordHash('admin123'),
-      'password_reset_token' => NULL,
+      'password_reset_token' => '100-token', // for unit testing
       'email' => 'admin@crm-yii.com',
       'status' => '1',
       'deleted_at' => NULL,
