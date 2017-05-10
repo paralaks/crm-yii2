@@ -36,3 +36,5 @@ phpunit.phar
 *.gz
 
 tests/_output/*
+
+tests/acceptance_selenium
