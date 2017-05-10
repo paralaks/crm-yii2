@@ -31,7 +31,7 @@ use yii\widgets\ActiveForm;
   </div>
 
 	<div class="form-group text-center">
-    <?= Html::submitButton(Yii::t('main', 'Search'), ['class' => 'btn btn-primary'])?>
+    <?= Html::submitButton(Yii::t('main', 'Search'), ['id' => 'search-lead-btn', 'class' => 'btn btn-primary'])?>
     <?php // Html::resetButton(Yii::t('main', 'Reset'), ['class' => 'btn btn-default']) ?>
   </div>
 

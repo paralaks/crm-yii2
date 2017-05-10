@@ -30,7 +30,7 @@ if ($serverName == STAGE_SERVER || ($isCLI && stripos($projectDir, STAGE_SERVER)
   defined('SERVER_DOMAIN') or define('SERVER_DOMAIN', STAGE_SERVER);
   defined('YII_ENV') or define('YII_ENV', 'staging');
   defined('DB_CONFIG') or define('DB_CONFIG', $configDir . '/db-stage.php');
-  defined('SERVER_DECAL') or define('SERVER_DECAL', '<div id="serverDecal">TEST &nbsp;Server</div>');
+  defined('SERVER_DECAL') or define('SERVER_DECAL', '<div id="serverDecal">TEST&nbsp;&nbsp;Server</div>');
 }
 else
 if ($serverName == DEV_SERVER || ($isCLI && stripos($projectDir, DEV_SERVER_PATH) === 0))
@@ -39,7 +39,7 @@ if ($serverName == DEV_SERVER || ($isCLI && stripos($projectDir, DEV_SERVER_PATH
   defined('YII_ENV') or define('YII_ENV', 'dev');
   defined('DB_CONFIG') or define('DB_CONFIG', $configDir . '/db.php');
   defined('YII_DEBUG') or define('YII_DEBUG', true);
-  defined('SERVER_DECAL') or define('SERVER_DECAL', '<div id="serverDecal">DEV &nbsp;Server</div>');
+  defined('SERVER_DECAL') or define('SERVER_DECAL', '<div id="serverDecal">DEV_Server</div>');
 }
 
 if (!defined('SERVER_DOMAIN'))

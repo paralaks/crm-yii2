@@ -13,7 +13,7 @@ $this->params['breadcrumbs'][]=$this->title;
 ?>
 
 <div class="leads-index">
-	<div class="pageTitle"><?= $this->title ?> <?= Html::a(Yii::t('main', 'New') . Yii::t('main', 'Lead'), ['create'], ['class' => 'btn btn-success button-new-index-page']) ?></div>
+	<div class="pageTitle"><?= $this->title ?> <?= Html::a(Yii::t('main', 'New') . Yii::t('main', 'Lead'), ['create'], ['id' => 'new-lead-btn', 'class' => 'btn btn-success button-new-index-page']) ?></div>
 </div>
 
 <?= $this->render('_search', ['model' => $searchModel])?>
@@ -43,7 +43,6 @@ echo GridView::widget(
     'first_name',
     'last_name',
     'email',
-    'last_name',
     'company',
     'status_id' => ['attribute' => 'status_id',
       'value' => function ($data)

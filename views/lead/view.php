@@ -179,9 +179,9 @@ $this->params['breadcrumbs'][]=$this->title;
 
   <div class="row">
     <div class="col-xs-12 text-center">
-      <?= Html::a(Yii::t('main', 'Edit'), ['update', 'id' => $model->id], ['class' => 'btn btn-success']) ?>
-      <?= Html::a(Yii::t('main', 'Delete'), ['delete','id' => $model->id], ['class' => 'btn btn-danger','data' => ['confirm' => Yii::t('main', 'CONFIRM_DELETION'),'method' => 'post']]) ?>
-      <?= Html::a(Yii::t('main', 'Convert'), ['convert','id' => $model->id], ['class' => 'btn btn-primary']) ?>
+      <?= Html::a(Yii::t('main', 'Edit'), ['update', 'id' => $model->id], ['id' => 'lead-edit-btn', 'class' => 'btn btn-success']) ?>
+      <?= Html::a(Yii::t('main', 'Delete'), ['delete','id' => $model->id], ['id' => 'lead-delete-btn', 'class' => 'btn btn-danger','data' => ['confirm' => Yii::t('main', 'CONFIRM_DELETION'),'method' => 'post']]) ?>
+      <?= Html::a(Yii::t('main', 'Convert'), ['convert','id' => $model->id], ['id' => 'lead-convert-btn', 'class' => 'btn btn-primary']) ?>
     </div>
   </div>
 

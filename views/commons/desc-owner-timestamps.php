@@ -29,16 +29,16 @@ $classNameLower=strtolower($className);
 
 <div class="row">
   <div class="col-xs-4 text-right">
-      <label for="adder">&nbsp;<?= Yii::t('main', 'Added By') ?>:</label>&nbsp;&nbsp;&nbsp;
-      <?= Html::encode($model->adder ? $model->adder->name : '') ?>&nbsp;&nbsp;&nbsp;
-      <?= $model->created_at ?>
+    <label for="adder">&nbsp;<?= Yii::t('main', 'Added By') ?>:</label>
+    <?= Html::encode($model->adder ? $model->adder->name : '') ?>
+    &nbsp;&nbsp;<?= $model->created_at ?>
   </div>
   <div class="col-xs-5 text-center">
-      <label for="modifier">&nbsp;<?= Yii::t('main', 'Modified By') ?>:</label>&nbsp;&nbsp;&nbsp;
-      <?= Html::encode($model->modifier ? $model->modifier->name : '') ?>&nbsp;&nbsp;&nbsp;
-      <?= $model->updated_at ?>
+    <label for="modifier">&nbsp;<?= Yii::t('main', 'Modified By') ?>:</label>
+    <?= Html::encode($model->modifier ? $model->modifier->name : '') ?>
+    &nbsp;&nbsp;<?= $model->updated_at ?>
   </div>
   <div class="col-xs-3 text-left">
-      <a href="<?= Url::to([$classNameLower.'/showupdatehistory', 'id' => $model->id])?>" target="_blank"><?= Yii::t('main', 'View update history') ?></a>
+    <a href="<?= Url::to([$classNameLower.'/showupdatehistory', 'id' => $model->id])?>" target="_blank"><?= Yii::t('main', 'View update history') ?></a>
   </div>
 </div>

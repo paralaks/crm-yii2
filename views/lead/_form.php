@@ -91,8 +91,8 @@ use yii\helpers\Url;
   <hr class="soften" />
 
   <div class="form-group text-center">
-    <?= Html::submitButton($model->isNewRecord ? Yii::t('main', 'Save') : Yii::t('main', 'Update'), ['class' => 'btn btn-primary']) ?>
-    <?= Html::a(Yii::t('main', 'Cancel'), ($model->isNewRecord ? Url::to(['lead/index']) : Url::to(['lead/view', 'id' => $model->id])), ['class' => 'btn btn-success']) ?>
+    <?= Html::submitButton($model->isNewRecord ? Yii::t('main', 'Save') : Yii::t('main', 'Update'), ['id' => 'lead-save-btn', 'class' => 'btn btn-primary']) ?>
+    <?= Html::a(Yii::t('main', 'Cancel'), ($model->isNewRecord ? Url::to(['lead/index']) : Url::to(['lead/view', 'id' => $model->id])), ['id' => 'cancel-btn', 'class' => 'btn btn-success']) ?>
   </div>
 
   <?php ActiveForm::end(); ?>
