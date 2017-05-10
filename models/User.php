@@ -131,7 +131,9 @@ class User extends CrmModel implements IdentityInterface
    */
   public static function findIdentityByAccessToken($token, $type=null)
   {
-    throw new NotSupportedException('"findIdentityByAccessToken" is not implemented.');
+   $user=static::findOneCrm(['password_reset_token' => $token, 'status' => AppHelper::STATUS_ACTIVE]);
+
+    return $user;
   }
 
   /**
