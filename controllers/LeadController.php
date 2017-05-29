@@ -139,8 +139,8 @@ class LeadController extends CrmController
         if ($model->new_opportunity==1)
         {
           $opportunity=new Opportunity();
-          $opportunity->setAttributes(['name'=>$model->opportunity_name, 'account_id'=>$model->account_id, 'stage_id'=>$model->stage_id, 'close_date'=>$model->close_date,
-            'lead_source_id'=>$lead->lead_source_id, 'owner_id'=>$lead->owner_id, 'adder_id'=>$lead->adder_id, 'modifier_id'=>$lead->modifier_id]);
+          $opportunity->setAttributes(['name'=>$model->opportunity_name, 'probability'=>$model->probability, 'stage_id'=>$model->stage_id, 'close_date'=>$model->close_date,
+            'account_id'=>$model->account_id, 'lead_source_id'=>$lead->lead_source_id, 'owner_id'=>$lead->owner_id, 'adder_id'=>$lead->adder_id, 'modifier_id'=>$lead->modifier_id]);
           $opportunity->save(true);
 
           if ($opportunity->getErrors())

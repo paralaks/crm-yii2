@@ -9,3 +9,11 @@ modules:
       - Asserts
       - Yii2:
             part: [orm, email]
+      - Db:
+          dsn: 'mysql:host=localhost;dbname=crm_yii;charset=utf8'
+          user: 'crm-yii'
+          password: 'crm-yii-pass'
+          dump: tests/_data/seeder.sql
+          populate: true
+          cleanup: true
+          reconnect: false

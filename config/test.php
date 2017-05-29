@@ -10,6 +10,9 @@ return [
     'basePath' => dirname(__DIR__),
     'language' => 'en-US',
     'components' => [
+        'cache' => [
+          'class' => 'yii\caching\FileCache',
+        ],
         'db' => $dbParams,
         'mailer' => [
             'useFileTransport' => true,
@@ -19,6 +22,9 @@ return [
         ],
         'urlManager' => [
             'showScriptName' => true,
+        ],
+        'appHelper' => [
+          'class' => 'app\helpers\AppHelper'
         ],
         'user' => [
             'identityClass' => 'app\models\User',
