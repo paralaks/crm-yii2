@@ -12,8 +12,9 @@ class m151102_000902_seed_users_table extends Migration
       'name' => 'Admin User',
       'auth_key' => Yii::$app->security->generateRandomString(),
       'password_hash' => Yii::$app->security->generatePasswordHash('admin123'),
-      'password_reset_token' => '100-token', // for unit testing
+      'password_reset_token' => ((YII_ENV != 'prod') ? '100-token' : NULL), // for unit testing populated on development environments
       'email' => 'admin@crm-yii.com',
+      'access_token' => 'rest1api2token3admin',
       'status' => '1',
       'deleted_at' => NULL,
       'created_at' => '2016-11-21 16:53:15',
@@ -29,6 +30,7 @@ class m151102_000902_seed_users_table extends Migration
         'password_hash' => Yii::$app->security->generatePasswordHash('manager123'),
         'password_reset_token' => NULL,
         'email' => 'manager@crm-yii.com',
+        'access_token' => 'rest1api2token3manager',
         'status' => '1',
         'deleted_at' => NULL,
         'created_at' => '2016-11-21 16:53:15',
@@ -42,6 +44,7 @@ class m151102_000902_seed_users_table extends Migration
         'password_hash' => Yii::$app->security->generatePasswordHash('user123'),
         'password_reset_token' => NULL,
         'email' => 'user@crm-yii.com',
+        'access_token' => 'rest1api2token3user',
         'status' => '1',
         'deleted_at' => NULL,
         'created_at' => '2016-11-21 16:53:15',

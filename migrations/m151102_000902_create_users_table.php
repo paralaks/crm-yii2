@@ -21,6 +21,7 @@ class m151102_000902_create_users_table extends Migration
       'password_hash' => Schema::TYPE_STRING . '(60) NOT NULL',
       'password_reset_token' => Schema::TYPE_STRING.'(60)',
       'email' => Schema::TYPE_STRING . '(255) NOT NULL',
+      'access_token' => Schema::TYPE_STRING . '(60) NOT NULL', // REST API access
       'status' => Schema::TYPE_SMALLINT . ' NOT NULL DEFAULT 10',
       "owner_id" => Schema::TYPE_INTEGER . "(10) unsigned DEFAULT NULL",
       "adder_id" => Schema::TYPE_INTEGER . "(10) unsigned DEFAULT NULL",

@@ -12,7 +12,10 @@ $config=[
     'db' => require (DB_CONFIG),
     'request' => [
       // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
-      'cookieValidationKey' => 'put_a_random_string_here'
+      'cookieValidationKey' => 'put_a_random_string_here',
+      'parsers' => [
+        'application/json' => 'yii\web\JsonParser',
+      ]
     ],
     'assetManager' => [
       'appendTimestamp' => true,
@@ -66,9 +69,17 @@ $config=[
       'showScriptName' => false,
       'enableStrictParsing' => false,
       'rules' => [
+          // REST rules
+          ['class' => 'yii\rest\UrlRule', 'pluralize'=>false, 'controller' => 'restv1/leads'],
+          ['class' => 'yii\rest\UrlRule', 'pluralize'=>false, 'controller' => 'restv1/contacts'],
+
+          // HTML rules
           '<controller:\w+>/<id:\d+>' => '<controller>/view',
           '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
-          '<controller:\w+>/<action:\w+>' => '<controller>/<action>'
+          '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
+          // if strict parsing is true; uncomment below
+          // '<controller:\w+>' => '<controller>/index',
+          // '/' => '/site/login',
       ]
     ],
     'authManager' => [
@@ -95,6 +106,7 @@ $config=[
       'site/login',
       'site/reset-password-request',
       'site/reset-password',
+      'restv1/*',
     ]
   ]
 ];

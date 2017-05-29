@@ -88,7 +88,7 @@ class CrmModel extends ActiveRecord
       $skipAttributes=['id', 'created_at', 'updated_at', 'adder_id', 'modifier_id'];
 
       if ($this->modelClassName=='User')
-        $skipAttributes=array_merge($skipAttributes, ['auth_key', 'password_hash', 'recent_items']);
+        $skipAttributes=array_merge($skipAttributes, ['auth_key', 'access_token', 'password_hash', 'recent_items']);
 
       foreach ($this->attributes as $k=>$v2)
         if (in_array($k, $skipAttributes))

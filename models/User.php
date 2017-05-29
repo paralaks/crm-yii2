@@ -131,7 +131,7 @@ class User extends CrmModel implements IdentityInterface
    */
   public static function findIdentityByAccessToken($token, $type=null)
   {
-   $user=static::findOneCrm(['password_reset_token' => $token, 'status' => AppHelper::STATUS_ACTIVE]);
+    $user=static::findOneCrm(['access_token' => $token, 'status' => AppHelper::STATUS_ACTIVE]);
 
     return $user;
   }
