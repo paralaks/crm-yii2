@@ -35,6 +35,6 @@ phpunit.phar
 *.7z
 *.gz
 
-tests/_output/*
-
-tests/acceptance_selenium
+tests/_output/
+tests/acceptance_selenium/
+tests/_support/
