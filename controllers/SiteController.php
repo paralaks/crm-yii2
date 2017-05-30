@@ -22,7 +22,22 @@ class SiteController extends Controller
 
   public function actions()
   {
-    return ['error' => ['class' => 'yii\web\ErrorAction'], 'captcha' => ['class' => 'yii\captcha\CaptchaAction', 'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null]];
+    return ['captcha' => ['class' => 'yii\captcha\CaptchaAction', 'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null]];
+  }
+
+  public function actionError()
+  {
+    // REST API error handling
+    if (stripos(Yii::$app->request->url, 'restv')!==false)
+    {
+      Yii::$app->response->statusCode=404;
+      Yii::$app->response->format=yii\web\Response::FORMAT_JSON;
+      Yii::$app->response->content='{"name":"Not Found Exception","message":"The requested resource was not found.","code":0,"status":404}';
+      return;
+    }
+    // HTML error handling
+    else
+      return $this->render('error', ['title' => Yii::t('main', 'Error # 404'), 'message' => Yii::t('main', 'Page was not found')]);
   }
 
   public function actionIndex()
