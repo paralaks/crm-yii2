@@ -13,6 +13,8 @@ class CrmController extends Controller
   public $searchResults=null;
   public $tooManyResults=false;
   public $excludeIds=null;
+  protected $className=null;
+  protected $classNameFull=null;
 
   public function init()
   {
@@ -33,12 +35,12 @@ class CrmController extends Controller
   // TODO : str_ireplace instead of str_replace?
   public function modelClassNameFull()
   {
-    return str_replace(['Controller', 'controllers'], ['', 'models'], get_called_class());
+    return $this->classNameFull ? $this->classNameFull : ($this->classNameFull=str_replace(['Controller', 'controllers'], ['', 'models'], get_called_class()));
   }
 
   public function modelClassName()
   {
-    return str_replace(['app\\controllers\\', 'Controller'], ['', ''], get_called_class());
+    return $this->className ? $this->className : ($this->className=str_replace(['app\\controllers\\', 'Controller'], ['', ''], get_called_class()));
   }
 
   /**
