@@ -180,7 +180,7 @@ return [
     'Probability' => '',
     'Rating' => '',
     'Read By Owner' => '',
-    'Record could not be found.' => '',
+    'RECORD_NOT_FOUND' => 'Record was not found.',
     'Record does not exist.' => '',
     'Record undeleted successfully.' => '',
     'Record was deleted before.' => 'Record was deleted before -- ',
