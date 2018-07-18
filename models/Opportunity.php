@@ -47,7 +47,7 @@ class Opportunity extends CrmModel
   public function rules()
   {
     return [
-      [['name', 'lead_source_id', 'stage_id', 'close_date', 'probability'], 'required'],
+      [['name', 'lead_source_id', 'stage_id', 'close_date', 'probability', 'type_id'], 'required'],
       [['amount', 'expected_revenue'], 'number'],
       [['probability', 'lead_source_id', 'stage_id', 'probability', 'type_id', 'contact_id', 'owner_id', 'adder_id', 'modifier_id'], 'integer'],
       [['description'], 'string'],
