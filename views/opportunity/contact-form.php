@@ -25,6 +25,11 @@ $this->params['breadcrumbs'][]=$this->title;
 <input type="hidden" id="formSubmit" name="formSubmit" value="" />
 <?= $form->field($relation, 'opportunity_id')->hiddenInput()->label(false)?>
 
+<div class="text-center">
+  <?= Yii::t('main', 'Use search form below') ?>
+</div>
+<br/>
+
 <div class="form-one-third">
 	<div class="form-group">
     <?php
@@ -34,7 +39,7 @@ $this->params['breadcrumbs'][]=$this->title;
 
     echo $form->field($relation, 'contact_id', $contactOptions)->label($useList ? false : null)->dropdownList(
     [($relation->contact_id ? intval($relation->contact_id) : '') =>
-        Html::encode($relation->contact_id ? $relation->contact->first_name . ' ' . $relation->contact->last_name : Yii::t('main', 'Select from search results'))]);
+        Html::encode($relation->contact_id ? $relation->contact->first_name . ' ' . $relation->contact->last_name : '')]);
     ?>
   </div>
 

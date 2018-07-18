@@ -165,9 +165,11 @@ function keywordSearchListItemChecked()
 {
 	$('#opportunitycontact-contact_id').empty();
 
-	if ($('.idListCBox').size() && $('.idListCBox:checked').size() > 0)
+	if ($('input.idListCBox:checkbox') && $('input.idListCBox:checkbox').length > 0)
 	{
-		$('#opportunitycontact-contact_id').append('<option value=' + $('.idListCBox:checked').first().val() + '></option>');
+		$('input.idListCBox:checked').each(function() {
+			$('#opportunitycontact-contact_id').append('<option value=' + this.value + '></option>');
+		});
 
 		return true;
 	}
