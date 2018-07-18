@@ -140,9 +140,7 @@ class OpportunityController extends CrmController
     $relId=Yii::$app->request->get('relId', 0);
 
     $relation=OpportunityContact::findOne($relId);
-    $relation->deleted_at=date('Y-m-d H:i:s');
-
-    $relation->save();
+    $relation->delete();
 
     return $this->redirect(['view', 'id' => $model->id]);
   }

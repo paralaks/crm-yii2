@@ -108,6 +108,6 @@ class Opportunity extends CrmModel
   public function getOpportunitycontacts()
   {
     //return $this->hasMany(OpportunityContact::className(), ['opportunity_id' => 'id'])->where('deleted_at is null')->with('owner')->with('contact');
-    return $this->hasMany(OpportunityContact::className(), ['opportunity_id' => 'id'])->where('deleted_at is null')->with('contact');
+    return $this->hasMany(OpportunityContact::className(), ['opportunity_id' => 'id'])->with('contact');
   }
 }

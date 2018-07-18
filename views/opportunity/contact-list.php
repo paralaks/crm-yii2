@@ -26,9 +26,7 @@ if (count($model->opportunitycontacts))
   {
     if (!$record->contact)
       continue;
-    /*
-     * TODO : remove if not needed : Add ability to undelete as done with deleting related records from activity
-    */
+
     $actions=Html::a(Yii::t('main', 'Edit'), Url::to(['opportunity/editcontact', 'id'=>$model->id, 'relId' => $record->id])).'&nbsp;&nbsp;&nbsp;'.
              Html::a(Yii::t('main', 'Delete'), Url::to(['opportunity/deletecontact', 'id'=>$model->id, 'relId' => $record->id]),
                      ['class' => 'text-danger', 'onclick'=>'return confirm("'.Yii::t('main', 'CONFIRM_DELETION').'")']).
