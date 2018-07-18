@@ -39,23 +39,23 @@ class OpportunityController extends CrmController
     if ($model->load(Yii::$app->request->post()) && $model->save())
     {
       // adding to contact while creating?
-      $contactId=Yii::$app->request->post('contact_id', 0);
+      $contactId=Yii::$app->request->get('contact_id', Yii::$app->request->post('contact_id', ''));
       if (!empty($contactId))
       {
         $relation=new OpportunityContact();
         $relation->opportunity_id=$model->id;
         $relation->contact_id=$contactId;
-        $relation->save();
+
+        if (!$relation->save()) {
+          Yii::$app->session->setFlash('pageError', Yii::t('main', 'Contact could not be added to opportunity.'));
+          return $this->redirect(['view', 'id' => $model->id]);
+        }
       }
 
       return $this->redirect(['view', 'id' => $model->id]);
     }
-    else
-    {
-      $model->contact_id=Yii::$app->request->get('contact_id', 0);
 
-      return $this->render('create', ['model' => $model]);
-    }
+    return $this->render('create', ['model' => $model, 'contact_id' => $contactId]);
   }
 
   public function actionAddcontact($id)

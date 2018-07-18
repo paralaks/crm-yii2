@@ -14,7 +14,7 @@ use yii\helpers\Url;
 
   <?php include(__DIR__.'/../commons/common-view-defs.php'); ?>
 
-	<input type="hidden" name="contact_id" value="<?= $model->contact_id ?>" />
+	<input type="hidden" name="contact_id" value="<?= $contact_id ?>" />
 
   <div class="form-group">
     <?= $form->field($model, 'type_id', $tt2ColIn)->dropDownList(Yii::$app->appHelper->getLookupData('lkp_opportunity_type'))?>

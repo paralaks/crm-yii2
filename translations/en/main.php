@@ -66,6 +66,7 @@ return [
     'Contact Detail' => '',
     'Contact Name' => '',
     'Contact Type' => 'Type',
+    'Contact could not be added to opportunity.' => '',
     'Contact could not be saved' => '',
     'Contact form submitted.' => '',
     'Contact information is missing.' => '',

@@ -20,7 +20,6 @@ use Yii;
  * @property string $lead_source_id
  * @property string $stage_id
  * @property string $type_id
- * @property string $contact_id
  * @property string $owner_id
  * @property string $adder_id
  * @property string $modifier_id
@@ -49,7 +48,7 @@ class Opportunity extends CrmModel
     return [
       [['name', 'lead_source_id', 'stage_id', 'close_date', 'probability', 'type_id'], 'required'],
       [['amount', 'expected_revenue'], 'number'],
-      [['probability', 'lead_source_id', 'stage_id', 'probability', 'type_id', 'contact_id', 'owner_id', 'adder_id', 'modifier_id'], 'integer'],
+      [['probability', 'lead_source_id', 'stage_id', 'probability', 'type_id', 'owner_id', 'adder_id', 'modifier_id'], 'integer'],
       [['description'], 'string'],
       [['name', 'next_step', 'competitors'], 'string', 'max' => 255],
 
@@ -97,7 +96,6 @@ class Opportunity extends CrmModel
       'lead_source_id' => Yii::t('main', 'Lead Source'),
       'stage_id' => Yii::t('main', 'Stage'),
       'type_id' => Yii::t('main', 'Opportunity Type'),
-      'contact_id' => Yii::t('main', 'Contact'),
       'owner_id' => Yii::t('main', 'Owner'),
       'adder_id' => Yii::t('main', 'Added By'),
       'modifier_id' => Yii::t('main', 'Modified By'),
