@@ -6,10 +6,10 @@ use yii\filters\auth\HttpBearerAuth;
 use yii\rest\ActiveController;
 use yii\web\UnauthorizedHttpException;
 use yii\web\NotFoundHttpException;
+use yii\web\BadRequestHttpException;
 
 class BaseRestController extends ActiveController
 {
-
   public function behaviors()
   {
     $behaviors=parent::behaviors();
@@ -24,8 +24,8 @@ class BaseRestController extends ActiveController
     {
       $checkModel=[$model];
 
-      if ($model->modelClassName() == 'Lead' && $model->converted_at)
-        throw new NotFoundHttpException(Yii::t('main', 'RECORD_NOT_FOUND'));
+      if (in_array($model->modelClassName(), ['Lead', 'LeadConvertForm']) && $model->converted_at)
+        throw new BadRequestHttpException(Yii::t('main', 'LEAD_WAS_CONVERTED'));
 
       if (Yii::$app->user->can('/' . strtolower($model->modelClassName()) . '/*', $checkModel) &&
        (Yii::$app->user->can('Update ' . $model->modelClassName(), $checkModel) || Yii::$app->user->can(ucfirst($action) . ' ' . $model->modelClassName(), $checkModel)))

@@ -70,7 +70,11 @@ $config=[
       'enableStrictParsing' => false,
       'rules' => [
           // REST rules
-          ['class' => 'yii\rest\UrlRule', 'pluralize'=>false, 'controller' => 'restv1/leads'],
+          ['class' => 'yii\rest\UrlRule', 'pluralize'=>false, 'controller' => 'restv1/leads',
+           'extraPatterns' => [
+              'POST convert/<id:\d+>' => 'convert',
+            ]
+          ],
           ['class' => 'yii\rest\UrlRule', 'pluralize'=>false, 'controller' => 'restv1/contacts'],
 
           // HTML rules
