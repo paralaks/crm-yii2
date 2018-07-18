@@ -25,7 +25,7 @@ $this->params['breadcrumbs'][] = Yii::t('main', 'Convert');
   	<?= $form->field($model, 'account_name', $tt1ColInSm)->textInput() ?>
   </div>
 
-  <?php if (count($accountResults))
+  <?php if (count($accountResults) > 1)
   {
   ?>
   <div class="row">
@@ -33,7 +33,7 @@ $this->params['breadcrumbs'][] = Yii::t('main', 'Convert');
   </div>
 
   <div class="row">
-      <?= $form->field($model, 'account_id', $tt1ColInSm)->dropDownList(array_merge([''=>''], array_column($accountResults, "name")))->label("Existing accounts") ?>
+      <?= $form->field($model, 'account_id', $tt1ColInSm)->dropDownList($accountResults)->label("Existing accounts") ?>
       <?php if ($tooManyResults===true)
         echo '<br>(<b>'.Yii::t('main', 'Too many results. Try again with another keyword.').'</b>)';
         ?>
