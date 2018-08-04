@@ -6,7 +6,8 @@ This is a small CRM project I developed using Yii2 framework as part of my self-
 * Install composer
 * Install composer asset plugin by executing console command `composer global require "fxp/composer-asset-plugin:^1.2.0"`
 * Clone the project and install Yii2 packages by executing command `composer update`
-* Setup your web server and database based on configuration file you would like to use. ie: open `config/db.php` for development environment settings.
+* Open `web/server-configuration.php` for server name and environment definitions. Pick the environment you want to run the application and either update your web server's configuration or the environment setting for the server name you want to use. 
+* Based on the environment you chose, update `config/db[-prod/stage].php` for database settings.
 * Run migrations by executing command `yii migrate`
 * Once all migrations are executed successfully, open application in your browser and use credentials in the seeder `migrations/m151102_000902_seed_users_table.php`
 * If you get some error messages related to **AppDbManager** class, it means framework updates are incompatible with the modified `helpers\AppDbManager.php` caching component. You can quickly solve this by editing `config/web.php` so that uncomment line 75, comment lines 77 & 78. It should look like this:
