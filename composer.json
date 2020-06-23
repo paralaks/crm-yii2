@@ -42,7 +42,7 @@
     "codeception/specify": "~0.4.3"
   },
 
-  "scripts": 
+  "scripts":
   {
     "post-create-project-cmd": 
     [
@@ -68,12 +68,13 @@
         "config/web.php"
       ]
     },
-
-    "asset-installer-paths": 
-    {
-      "npm-asset-library": "vendor/npm",
-      "bower-asset-library": "vendor/bower"
+    "config": {
+      "fxp-asset": {
+        "installer-paths": {
+          "npm-asset-library": "vendor/npm",
+          "bower-asset-library": "vendor/bower"
+        }
+      }
     }
   }
 }
-
