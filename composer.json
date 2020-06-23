@@ -42,15 +42,6 @@
     "codeception/specify": "~0.4.3"
   },
 
-  "config": 
-  {
-    "process-timeout": 1800,
-    "github-oauth":
-    {
-      "github.com": "91ac2fa9f672201336ed27adc169f1f3b735496c"
-    }
-  },
-
   "scripts": 
   {
     "post-create-project-cmd": 

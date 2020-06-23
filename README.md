@@ -6,6 +6,7 @@ This is a small CRM project I developed using Yii2 framework as part of my self-
 * Install composer
 * Install composer asset plugin by executing console command `composer global require "fxp/composer-asset-plugin:^1.2.0"`
 * Clone the project and install Yii2 packages by executing command `composer update`
+* You might get errors regarding **GitHub OAuth token**. Create a token (**public_repo** permission is sufficient) as described on **https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line** and retry following prompts. Same for API limit errors. 
 * Open `web/server-configuration.php` for server name and environment definitions. Pick the environment you want to run the application and either update your web server's configuration or the environment setting for the server name you want to use. 
 * Based on the environment you chose, update `config/db[-prod/stage].php` for database settings.
 * Run migrations by executing command `yii migrate`
