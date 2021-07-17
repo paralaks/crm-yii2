@@ -32,7 +32,7 @@ class m160222_204116_seed_contacts_accounts_table extends Migration
         'modifier_id' => NULL,
         'deleted_at' => NULL,
         'created_at' => '2015-05-05 11:27:02',
-        'updated_at' => NULL]);
+        'updated_at' => date("Y-m-d H:i:s")]);
       $this->insert("{{%contacts}}",
       ['id' => '5',
         'email' => 'isac@newton.com',
@@ -57,7 +57,7 @@ class m160222_204116_seed_contacts_accounts_table extends Migration
         'modifier_id' => NULL,
         'deleted_at' => NULL,
         'created_at' => '2015-05-05 11:27:02',
-        'updated_at' => NULL]);
+        'updated_at' => date("Y-m-d H:i:s")]);
       $this->insert("{{%contacts}}",
       ['id' => '6',
         'email' => 'jamex@maxwell.com',
@@ -82,7 +82,7 @@ class m160222_204116_seed_contacts_accounts_table extends Migration
         'modifier_id' => NULL,
         'deleted_at' => NULL,
         'created_at' => '2015-05-05 11:27:02',
-        'updated_at' => NULL]);
+        'updated_at' => date("Y-m-d H:i:s")]);
       $this->insert("{{%contacts}}",
       ['id' => '7',
         'email' => 'irwin@cat.com',
@@ -107,7 +107,7 @@ class m160222_204116_seed_contacts_accounts_table extends Migration
         'modifier_id' => NULL,
         'deleted_at' => NULL,
         'created_at' => '2015-05-05 11:27:02',
-        'updated_at' => NULL]);
+        'updated_at' => date("Y-m-d H:i:s")]);
       $this->insert("{{%contacts}}",
       ['id' => '8',
         'email' => 'neils@bohr.com',
@@ -132,7 +132,7 @@ class m160222_204116_seed_contacts_accounts_table extends Migration
         'modifier_id' => NULL,
         'deleted_at' => NULL,
         'created_at' => '2015-05-05 11:27:02',
-        'updated_at' => NULL]);
+        'updated_at' => date("Y-m-d H:i:s")]);
       $this->insert("{{%contacts}}",
       ['id' => '9',
         'email' => 'max@planck.com',
@@ -157,7 +157,7 @@ class m160222_204116_seed_contacts_accounts_table extends Migration
         'modifier_id' => NULL,
         'deleted_at' => NULL,
         'created_at' => '2015-05-05 11:27:02',
-        'updated_at' => NULL]);
+        'updated_at' => date("Y-m-d H:i:s")]);
       $this->insert("{{%contacts}}",
       ['id' => '10',
         'email' => 'al@haytam.com',
@@ -182,7 +182,7 @@ class m160222_204116_seed_contacts_accounts_table extends Migration
         'modifier_id' => NULL,
         'deleted_at' => NULL,
         'created_at' => '2015-05-05 11:27:02',
-        'updated_at' => NULL]);
+        'updated_at' => date("Y-m-d H:i:s")]);
       $this->insert("{{%contacts}}",
       ['id' => '11',
         'email' => 'ibn@khaldun.com',
@@ -207,7 +207,7 @@ class m160222_204116_seed_contacts_accounts_table extends Migration
         'modifier_id' => NULL,
         'deleted_at' => NULL,
         'created_at' => '2015-05-05 11:27:02',
-        'updated_at' => NULL]);
+        'updated_at' => date("Y-m-d H:i:s")]);
       $this->insert("{{%contacts}}",
       ['id' => '12',
         'email' => 'al@razi.com',
@@ -232,7 +232,7 @@ class m160222_204116_seed_contacts_accounts_table extends Migration
         'modifier_id' => NULL,
         'deleted_at' => NULL,
         'created_at' => '2015-05-05 11:27:02',
-        'updated_at' => NULL]);
+        'updated_at' => date("Y-m-d H:i:s")]);
       $this->insert("{{%contacts}}",
       ['id' => '13',
         'email' => 'thabit@qurra.com',
@@ -257,7 +257,7 @@ class m160222_204116_seed_contacts_accounts_table extends Migration
         'modifier_id' => NULL,
         'deleted_at' => NULL,
         'created_at' => '2015-05-05 11:27:02',
-        'updated_at' => NULL]);
+        'updated_at' => date("Y-m-d H:i:s")]);
       $this->insert("{{%contacts}}",
       ['id' => '14',
         'email' => 'musa@khwarizmi.com',
@@ -282,7 +282,7 @@ class m160222_204116_seed_contacts_accounts_table extends Migration
         'modifier_id' => NULL,
         'deleted_at' => NULL,
         'created_at' => '2015-05-05 11:27:02',
-        'updated_at' => NULL]);
+        'updated_at' => date("Y-m-d H:i:s")]);
 
       $this->update("{{%contacts}}", ['picture' => '1155ecee4aa6cc6b9333e1a6c8c5a4b94.jpg'], 'id=1');
 
@@ -404,4 +404,3 @@ class m160222_204116_seed_contacts_accounts_table extends Migration
     return null;
   }
 }
-
